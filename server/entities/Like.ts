@@ -19,4 +19,10 @@ export default class Like extends BaseEntity {
 
     @Column({ nullable: true })
     userId: number;
+
+    @Column({ nullable: true })
+    postId: number;
+
+    @Column({ nullable: true })
+    commentId: number;
 }
