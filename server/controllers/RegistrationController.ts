@@ -8,6 +8,8 @@ import User from '../entities/User';
 const router = Router();
 
 router.post('/', async (req: Request, res: Response) => {
+	console.log('POST /register called');
+	
 	let { username, password } = req.body;
 	username = username.trim();
 	password = password.trim();
