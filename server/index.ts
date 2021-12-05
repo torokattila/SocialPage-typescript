@@ -10,6 +10,7 @@ import Like from './entities/Like';
 import { validateToken } from './middlewares/AuthMiddleware';
 import AuthController from './controllers/AuthController';
 import RegistrationController from './controllers/RegistrationController';
+import LoginController from './controllers/LoginController';
 
 const PORT = process.env.PORT || 3001;
 
@@ -39,6 +40,7 @@ const init = async () => {
 		app.use(bodyParser.urlencoded({ extended: true }));
         app.use('/api/auth', validateToken, AuthController);
         app.use('/api/register', RegistrationController);
+        app.use('/api/login', LoginController)
 
         app.listen(PORT, () => {
             console.log(`App is running at PORT ${PORT}`);
