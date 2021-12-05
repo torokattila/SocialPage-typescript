@@ -12,6 +12,7 @@ import AuthController from './controllers/AuthController';
 import RegistrationController from './controllers/RegistrationController';
 import LoginController from './controllers/LoginController';
 import PostsController from './controllers/PostsController';
+import LikeController from './controllers/LikeController';
 
 const PORT = process.env.PORT || 3001;
 
@@ -43,6 +44,7 @@ const init = async () => {
         app.use('/api/register', RegistrationController);
         app.use('/api/login', LoginController);
         app.use('/posts', validateToken, PostsController);
+        app.use('/like', validateToken, LikeController);
 
         app.listen(PORT, () => {
             console.log(`App is running at PORT ${PORT}`);
