@@ -2,12 +2,6 @@ import User from '../entities/User';
 import { getConnection, getRepository } from 'typeorm';
 import bcrypt from 'bcryptjs';
 
-export type UserAttributes = {
-    id: number;
-    username: string;
-    password: string;
-}
-
 const getUserRepository = () => getConnection().getRepository(User);
 
 const getByUsername = async (username: string): Promise<User | undefined> => {
