@@ -19,7 +19,7 @@ export default class Comment extends BaseEntity {
     @Column()
     username: string;
 
-    @ManyToOne(() => Post, post => post.comments)
+    @ManyToOne(() => Post, post => post.Comments)
     post: Post;
 
     @OneToMany(() => Like, like => like.comment)

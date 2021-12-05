@@ -24,10 +24,10 @@ export default class Post extends BaseEntity {
     username: string;
 
     @OneToMany(() => Comment, comment => comment.post)
-    comments: Comment[];
+    Comments: Comment[];
 
     @OneToMany(() => Like, like => like.post)
-    likes: Like[];
+    Likes: Like[];
 
     @ManyToOne(() => User, user => user.posts)
     user: User;
