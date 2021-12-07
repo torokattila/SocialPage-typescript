@@ -3,6 +3,7 @@ import {
 	Column,
 	CreateDateColumn,
 	Entity,
+	JoinColumn,
 	ManyToOne,
 	OneToMany,
 	PrimaryGeneratedColumn
@@ -26,19 +27,21 @@ export default class Comment extends BaseEntity {
 
 	@Column() username: string;
 
-	@ManyToOne(() => User, user => user.comments)
+	@ManyToOne(() => User, user => user.comments, { onDelete: 'CASCADE' })
+	@JoinColumn({ name: 'user_id' })
 	user: User;
 
 	@Column({ name: 'user_id', nullable: true })
 	userId: number;
 
-	@ManyToOne(() => Post, post => post.Comments)
+	@ManyToOne(() => Post, post => post.Comments, { onDelete: 'CASCADE' })
+	@JoinColumn({ name: 'post_id' })
 	post: Post;
 
 	@Column({ name: 'post_id', nullable: true })
 	postId: number;
 
-	@OneToMany(() => Like, like => like.comment, {onDelete: 'CASCADE'})
+	@OneToMany(() => Like, like => like.comment, { onDelete: 'CASCADE' })
 	Likes: Like[];
 
 	@Column({ name: 'like_id', nullable: true })

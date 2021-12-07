@@ -21,7 +21,7 @@ const create = async (
 	postEntity.title = title;
 	postEntity.content = content;
 	postEntity.createdAt = new Date();
-	postEntity.user = user;
+	postEntity.userId = user.id;
 	postEntity.username = username;
 
 	try {
