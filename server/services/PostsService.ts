@@ -53,7 +53,10 @@ const list = async (userId: number): Promise<PostListType> => {
 const get = async (postId: number): Promise<Post> => {
 	let response: Post | undefined;
 	try {
-		const currentPost = await getPostRepository().findOne(postId, {
+		const currentPost = await getPostRepository().findOne({
+			where: {
+				id: postId,
+			},
 			relations: ['Likes', 'Comments']
 		});
 
