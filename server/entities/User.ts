@@ -6,6 +6,7 @@ import {
 	OneToMany,
 	PrimaryGeneratedColumn
 } from 'typeorm';
+import Comment from './Comment';
 import Like from './Like';
 import Post from './Post';
 
@@ -30,4 +31,7 @@ export default class User extends BaseEntity {
 
 	@OneToMany(() => Like, like => like.user)
 	likes: Like[];
+
+	@OneToMany(() => Comment, comment => comment.user)
+	comments: Comment[];
 }
