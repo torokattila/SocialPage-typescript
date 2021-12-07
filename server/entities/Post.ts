@@ -1,37 +1,43 @@
-import { BaseEntity, Column, CreateDateColumn, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import {
+	BaseEntity,
+	Column,
+	CreateDateColumn,
+	Entity,
+	JoinColumn,
+	ManyToOne,
+	OneToMany,
+	PrimaryGeneratedColumn
+} from 'typeorm';
 import Comment from './Comment';
 import Like from './Like';
 import User from './User';
 
 @Entity({ name: 'posts' })
 export default class Post extends BaseEntity {
-    @PrimaryGeneratedColumn()
-    id: number;
+	@PrimaryGeneratedColumn() id: number;
 
-    @CreateDateColumn({ name: 'created_at' })
-    createdAt: Date;
+	@CreateDateColumn({ name: 'created_at' })
+	createdAt: Date;
 
-    @CreateDateColumn({ name: 'updated_at' })
-    updatedAt: Date;
+	@CreateDateColumn({ name: 'updated_at' })
+	updatedAt: Date;
 
-    @Column()
-    title: string;
+	@Column() title: string;
 
-    @Column()
-    content: string;
+	@Column() content: string;
 
-    @Column()
-    username: string;
+	@Column() username: string;
 
-    @OneToMany(() => Comment, comment => comment.post)
-    Comments: Comment[];
+	@OneToMany(() => Comment, comment => comment.post)
+	Comments: Comment[];
 
-    @OneToMany(() => Like, like => like.post)
-    Likes: Like[];
+	@OneToMany(() => Like, like => like.post)
+	Likes: Like[];
 
-    @ManyToOne(() => User, user => user.posts)
-    user: User;
+	@ManyToOne(() => User, user => user.posts, { onDelete: 'CASCADE' })
+	@JoinColumn({ name: 'user_id' })
+	user: User;
 
-    @Column({ name: 'user_id', nullable: true })
-    userId: string;
+	@Column({ name: 'user_id', nullable: true })
+	userId: number;
 }
