@@ -2,6 +2,7 @@ import User from '../entities/User';
 import { getConnection } from 'typeorm';
 import bcrypt from 'bcryptjs';
 import { verifyPassword } from '../common/PasswordHelper';
+import { getPostRepository } from './PostsService';
 
 const getUserRepository = () => getConnection().getRepository(User);
 
@@ -16,6 +17,7 @@ const getByUsername = async (username: string): Promise<User | undefined> => {
 		});
 	} catch (error) {
 		console.log(error);
+        throw new Error(error);
 	}
 
 	return response;
@@ -36,51 +38,73 @@ const create = async (username: string, password: string): Promise<User> => {
 	}
 };
 
-const updateCredentials = async (userId: number, username: string, oldPassword: string, newPassword: string): Promise<User> => {
-    const userEntity = await getUserRepository().findOne(userId);
+const getById = async (userId: number): Promise<User> => {
+	try {
+		const userEntity = await getUserRepository().findOne(userId, {
+			relations: ['posts', 'posts.Likes', 'posts.Comments']
+		});
 
-    if (!userEntity) {
-        throw new Error('User not found!');
-    }
+		if (userEntity) {
+			return userEntity;
+		} else {
+			throw new Error('user_not_found');
+		}
+	} catch (error) {
+		throw new Error(error);
+	}
+};
 
-    if (username !== '' && newPassword !== '') {
-        const verified = await verifyPassword(oldPassword, userEntity.password);
+const updateCredentials = async (
+	userId: number,
+	username: string,
+	oldPassword: string,
+	newPassword: string
+): Promise<User> => {
+	const userEntity = await getUserRepository().findOne(userId);
 
-        if (!verified) {
-            throw new Error('wrong_old_password');
-        }
+	if (!userEntity) {
+		throw new Error('User not found!');
+	}
 
-        userEntity.username = username;
-        userEntity.password = await bcrypt.hash(newPassword, 10);
-    } else if (username !== '' && newPassword === '') {
-        userEntity.username = username;
-    } else if (username === '' && newPassword !== '') {
-        const verified = await verifyPassword(oldPassword, userEntity.password);
+	if (username !== '' && newPassword !== '') {
+		const verified = await verifyPassword(oldPassword, userEntity.password);
 
-        if (!verified) {
-            throw new Error('wrong_old_password');
-        }
+		if (!verified) {
+			throw new Error('wrong_old_password');
+		}
 
-        userEntity.password = await bcrypt.hash(newPassword, 10);
-    }
-    
-    await getUserRepository().save(userEntity);
+		userEntity.username = username;
+		userEntity.password = await bcrypt.hash(newPassword, 10);
+	} else if (username !== '' && newPassword === '') {
+		userEntity.username = username;
+	} else if (username === '' && newPassword !== '') {
+		const verified = await verifyPassword(oldPassword, userEntity.password);
 
-    return userEntity;
+		if (!verified) {
+			throw new Error('wrong_old_password');
+		}
+
+		userEntity.password = await bcrypt.hash(newPassword, 10);
+	}
+
+	await getUserRepository().save(userEntity);
+
+	return userEntity;
 };
 
 const remove = async (userId: number): Promise<void> => {
-    try {
-        await getUserRepository().delete(userId);
-    } catch (error) {
-        console.log(error);
-        throw new Error(error);
-    }
+	try {
+		await getUserRepository().delete(userId);
+	} catch (error) {
+		console.log(error);
+		throw new Error(error);
+	}
 };
 
 export default {
 	getByUsername,
 	create,
-    updateCredentials,
-    remove
+	updateCredentials,
+	remove,
+	getById
 };

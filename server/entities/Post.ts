@@ -28,10 +28,10 @@ export default class Post extends BaseEntity {
 
 	@Column() username: string;
 
-	@OneToMany(() => Comment, comment => comment.post)
+	@OneToMany(() => Comment, comment => comment.post, { onDelete: 'CASCADE' })
 	Comments: Comment[];
 
-	@OneToMany(() => Like, like => like.post)
+	@OneToMany(() => Like, like => like.post, { onDelete: 'CASCADE' })
 	Likes: Like[];
 
 	@ManyToOne(() => User, user => user.posts, { onDelete: 'CASCADE' })
