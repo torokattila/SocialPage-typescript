@@ -4,6 +4,22 @@ import UserService from '../services/UserService';
 
 const router = Router();
 
+router.get('/:id', async (req: Request, res: Response) => {
+    console.log(`GET /users/${req.params.id} called`);
+    const userId = req.params.id;
+
+    try {
+        const user = await UserService.getById(Number(userId));
+
+        return res.status(StatusCodes.OK).send(user);
+    } catch (error: any) {
+        console.log(error);
+        return res.status(StatusCodes.BAD_REQUEST).json({
+            error: 'There was an error with getting the user',
+        });
+    }
+});
+
 router.put('/changecredentials', async (req: Request, res: Response) => {
     console.log('PUT /changecredentials called');
     const { newUsername, oldPassword, newPassword } = req.body;

@@ -9,7 +9,7 @@ export type PostListType = {
 	likedPosts: Like[];
 };
 
-const getPostRepository = () => getConnection().getRepository(Post);
+export const getPostRepository = () => getConnection().getRepository(Post);
 
 const create = async (
 	title: string,
