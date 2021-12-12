@@ -1,5 +1,5 @@
 import axios, { AxiosError, AxiosResponse } from 'axios';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 export type AuthType = {
 	username: string;

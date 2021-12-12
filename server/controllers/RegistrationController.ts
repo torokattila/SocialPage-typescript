@@ -34,7 +34,7 @@ router.post('/', async (req: Request, res: Response) => {
 		if (user) {
 			return res.status(StatusCodes.BAD_REQUEST).send({
 				error:
-					'This username is already exist, please choose a differend username!'
+					'This username is already exist, please choose another username!'
 			});
 		} else {
 			const newUser = await UserService.create(username, password);
