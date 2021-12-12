@@ -1,11 +1,7 @@
-import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons';
-import { AuthContext } from '../helpers/AuthContext';
-import IconButton from '@material-ui/core/IconButton';
 import LoginContainer from '../containers/LoginContainer';
 import '../components/Login.css';
-import { toast } from 'react-toastify';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import RegistrationContainer from '../containers/RegistrationContainer';

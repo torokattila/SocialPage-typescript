@@ -1,0 +1,161 @@
+.navbar {
+	display: flex;
+	align-items: center;
+	flex-direction: row-reverse;
+	justify-content: right;
+	margin: 0;
+	padding: 0.2vw;
+	height: 5vw;
+	width: 100%;
+	background-image: linear-gradient(
+		109.6deg,
+		rgba(96, 221, 142, 1) 11.2%,
+		rgba(24, 138, 141, 1) 91.1%
+	);
+}
+
+.nameAndLogout {
+	margin-right: 5vw;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.nameAndLogout h1 {
+	font-size: 1.4vw;
+	cursor: pointer;
+	padding: 0.5vw 1vw;
+	border-radius: 50px;
+	border: 1px solid #fff;
+	text-align: center !important;
+	margin-right: 1.2vw !important;
+}
+
+.nameAndLogout h1:hover {
+	transition: 0.4s;
+	background: #fff;
+	color: #278a8d;
+}
+
+.logoutButton {
+	border: none;
+	padding: 0.8vw;
+	width: 8vw;
+	cursor: pointer;
+	border-radius: 50px;
+	background: transparent;
+	border: 1px solid #fff;
+	color: #fff;
+	font-size: 0.8vw;
+	font-weight: bold;
+	transition: 0.4s;
+	text-transform: uppercase;
+}
+
+.logoutButton:hover {
+	transition: 0.4s;
+	background: #fff;
+	color: #278a8d;
+}
+
+.homeAndCreatePost {
+	display: flex;
+	left: 5vw;
+	position: absolute;
+	align-content: space-between;
+	align-items: center;
+	justify-content: center;
+}
+
+.homeIcon {
+	color: #fff;
+	font-size: 2vw !important;
+}
+
+.links {
+	text-decoration: none !important;
+	color: #fff;
+	margin-right: 3vw;
+	font-weight: bold;
+	font-size: 1.2vw;
+	transition: 0.4s;
+}
+
+.links:hover {
+	transition: 0.4s;
+	color: teal;
+}
+
+@media only screen and (max-width: 600px) {
+    .navbar {
+		display: flex;
+		align-items: center;
+		flex-direction: row-reverse;
+		justify-content: right;
+		margin: 0;
+		padding: 0;
+		height: 15vw;
+		width: 100%;
+		background-image: linear-gradient(
+			109.6deg,
+			rgba(96, 221, 142, 1) 11.2%,
+			rgba(24, 138, 141, 1) 91.1%
+		);
+	}
+
+    .nameAndLogout {
+		margin-right: 3vw;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+	}
+
+	.nameAndLogout h1 {
+		font-size: 3vw;
+		cursor: pointer;
+		padding: 2vw 2vw;
+		border-radius: 50px;
+		border: 1px solid #fff;
+		text-align: center !important;
+		margin-right: 4vw !important;
+	}
+	
+	.nameAndLogout h1:hover {
+		transition: 0.4s;
+		background: #fff;
+		color: #278a8d;
+	}
+
+    .logoutButton {
+		border: none;
+		padding: 2.5vw;
+		width: 22vw;
+		cursor: pointer;
+		border-radius: 50px;
+		background: transparent;
+		border: 1px solid #fff;
+		color: #fff;
+		font-size: 2.5vw;
+		font-weight: bold;
+		transition: 0.4s;
+		text-transform: uppercase;
+	}
+
+    .homeAndCreatePost {
+		display: flex;
+		position: absolute;
+		align-content: space-between;
+		align-items: center;
+		justify-content: center;
+	}
+
+    .homeIcon {
+		color: #fff;
+		font-size: 10vw !important;
+		margin: 2vw;
+	}
+
+    .links {
+		display: none;
+	}
+}

@@ -6,6 +6,7 @@ import ChatIcon from '@material-ui/icons/Chat';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import './Home.css';
+import Navbar from '../shared/Navbar';
 
 const Home = (): JSX.Element => {
 	const {
@@ -27,6 +28,7 @@ const Home = (): JSX.Element => {
 
 	return (
 		<div className="homePageContainer">
+			<Navbar />
 			{listOfPosts.length === 0
 				? <div className="noPostsDiv">
 						<p>Be the first,</p>

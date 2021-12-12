@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import './App.css';
 import AuthenticationContainer from './containers/AuthenticationContainer';
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { AuthContext } from "./helpers/AuthContext";
 import Login from './components/Login';
 import Registration from './components/Registration';

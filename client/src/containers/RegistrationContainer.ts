@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import axios, { AxiosError, AxiosResponse } from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import { AuthContext } from '../helpers/AuthContext';
 import { useHistory } from 'react-router-dom';
 import { toast } from 'react-toastify';
