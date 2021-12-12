@@ -16,12 +16,7 @@ const RegistrationContainer = () => {
     const { setAuthState } = useContext(AuthContext);
     const history = useHistory();
 
-    const handleSignup = async (): Promise<void> => {
-        const data: RegistrationDataType = {
-            username: registrationUsername,
-            password: registrationPassword,
-        };
-
+    const handleSignup = async (data: RegistrationDataType): Promise<void> => {
         await axios.post('http://localhost:3001/api/register', data)
         .then((response: AxiosResponse) => {
             if (response.data.error) {
@@ -37,9 +32,8 @@ const RegistrationContainer = () => {
                 history.push('/');
             }
         })
-        .catch((error: AxiosError) => {
-            console.log(error);
-            toast.error('There was an error with the registration!', { theme: 'colored'});
+        .catch((error: any) => {
+            toast.error(error.response.data.error, { theme: 'colored'});
         })
     };
 

@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import { AuthContext } from "./helpers/AuthContext";
 import Login from './components/Login';
 import Registration from './components/Registration';
+import Home from './components/Home';
 
 
 const App = (): JSX.Element => {
@@ -15,8 +16,9 @@ const App = (): JSX.Element => {
   }, []);
 
 	
+  if (!authState.status) {
     return (
-      <div className="app">
+      <div className="App">
         <AuthContext.Provider value={{authState, setAuthState}}>
           <Router>
             <Switch>
@@ -30,6 +32,20 @@ const App = (): JSX.Element => {
         </AuthContext.Provider>
       </div>
     )
+  } else {
+    return (
+      <div className="App">
+          <AuthContext.Provider value={{ authState, setAuthState}}>
+            <Router>
+              <Switch>
+                <Route exact path='/' component={Home} />
+              </Switch>
+            </Router>
+          </AuthContext.Provider>
+      </div>
+    )
+  }
+    
 };
 
 export default App;

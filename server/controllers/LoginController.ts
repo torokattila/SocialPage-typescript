@@ -59,7 +59,7 @@ router.post('/', async (req: Request, res: Response) => {
 		}
 	} catch (error) {
 		return res.status(StatusCodes.BAD_REQUEST).json({
-			error: 'wrong_username_or_password'
+			error: 'Wrong username or password!'
 		});
 	}
 });
