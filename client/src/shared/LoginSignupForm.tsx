@@ -7,6 +7,7 @@ import LoginContainer from '../containers/LoginContainer';
 import '../components/Login.css';
 import { toast } from 'react-toastify';
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import RegistrationContainer from '../containers/RegistrationContainer';
 import '../components/Login.css';
 import * as Yup from 'yup';
@@ -19,11 +20,7 @@ type LoginSignupFormProps = {
 const LoginSignupForm = ({ pageName }: LoginSignupFormProps): JSX.Element => {
 	const history = useHistory();
 
-	const {
-		setRegistrationUsername,
-		setRegistrationPassword,
-		handleSignup
-	} = RegistrationContainer();
+	const { handleSignup } = RegistrationContainer();
 
 	const {
 		setLoginUsername,
@@ -199,6 +196,18 @@ const LoginSignupForm = ({ pageName }: LoginSignupFormProps): JSX.Element => {
 							</div>
 						</div>
 					</div>}
+
+			<ToastContainer
+				position="top-right"
+				autoClose={2500}
+				hideProgressBar={true}
+				newestOnTop={false}
+				closeOnClick
+				rtl={false}
+				pauseOnFocusLoss
+				draggable
+				pauseOnHover
+			/>
 		</div>
 	);
 };

@@ -32,7 +32,7 @@ router.post('/', async (req: Request, res: Response) => {
 		);
 
 		if (user) {
-			return res.status(StatusCodes.BAD_REQUEST).json({
+			return res.status(StatusCodes.BAD_REQUEST).send({
 				error:
 					'This username is already exist, please choose a differend username!'
 			});
