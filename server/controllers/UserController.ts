@@ -15,7 +15,7 @@ router.get('/:id', async (req: Request, res: Response) => {
     } catch (error: any) {
         console.log(error);
         return res.status(StatusCodes.BAD_REQUEST).json({
-            error: 'There was an error with getting the user',
+            error: error.message,
         });
     }
 });
@@ -38,9 +38,9 @@ router.put('/changecredentials', async (req: Request, res: Response) => {
             successMessage: 'Successful update!',
         });
     } catch (error: any) {
-        console.log(error);
+        console.log(error.message);
         return res.status(StatusCodes.BAD_REQUEST).json({
-            error: 'There was an error with the update!',
+            error: error.message,
         });
     }
 });

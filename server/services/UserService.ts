@@ -47,7 +47,7 @@ const getById = async (userId: number): Promise<User> => {
 		if (userEntity) {
 			return userEntity;
 		} else {
-			throw new Error('user_not_found');
+			throw new Error('User not found!');
 		}
 	} catch (error) {
 		throw new Error(error);
@@ -70,7 +70,7 @@ const updateCredentials = async (
 		const verified = await verifyPassword(oldPassword, userEntity.password);
 
 		if (!verified) {
-			throw new Error('wrong_old_password');
+			throw new Error('Wrong old password!');
 		}
 
 		userEntity.username = username;
@@ -81,7 +81,7 @@ const updateCredentials = async (
 		const verified = await verifyPassword(oldPassword, userEntity.password);
 
 		if (!verified) {
-			throw new Error('wrong_old_password');
+			throw new Error('Wrong old password!');
 		}
 
 		userEntity.password = await bcrypt.hash(newPassword, 10);

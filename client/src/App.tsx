@@ -6,6 +6,7 @@ import { AuthContext } from "./helpers/AuthContext";
 import Login from './components/Login';
 import Registration from './components/Registration';
 import Home from './components/Home';
+import ChangeCredentials from './components/ChangeCredentials';
 
 
 const App = (): JSX.Element => {
@@ -39,6 +40,7 @@ const App = (): JSX.Element => {
             <Router>
               <Switch>
                 <Route exact path='/' component={Home} />
+                <Route exact path='/changecredentials' component={ChangeCredentials} />
               </Switch>
             </Router>
           </AuthContext.Provider>
