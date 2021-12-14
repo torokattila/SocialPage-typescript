@@ -7,6 +7,7 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import './Home.css';
 import Navbar from '../shared/Navbar';
+import moment from 'moment';
 
 const Home = (): JSX.Element => {
 	const {
@@ -70,7 +71,7 @@ const Home = (): JSX.Element => {
 									</div>
 
 									<div className="postDate">
-										{post.createdAt}
+										{moment(post.createdAt).format('YYYY-MM-DD')}
 										<div className="commentCounterDiv">
 											<ChatIcon
 												className="commentsIcon"

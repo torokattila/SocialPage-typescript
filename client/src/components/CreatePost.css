@@ -1,0 +1,139 @@
+.createPostContainer {
+	margin: 0;
+	width: 100%;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+		Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	animation: fadein 1s;
+	padding-bottom: 4vw;
+}
+
+.createPostContainer h1 {
+	margin: 0;
+	color: #fff;
+	text-align: right;
+	margin-right: 70px;
+}
+
+.createPostFormDiv {
+	width: 36.5vw;
+	height: auto;
+	padding: 4.16vw;
+	margin: 0 auto;
+	margin-top: 5.2vw;
+	box-shadow: 0 5px 10px rgba(159, 165, 190, 0.274),
+		0 15px 40px rgba(166, 173, 201, .2);
+	border-radius: 20px;
+	display: flex;
+	justify-content: center;
+}
+
+.createPostContainerForm {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 26vw;
+	height: auto;
+}
+
+.createPostContainerForm label {
+	margin-top: 2.6vw;
+	color: #33be77;
+	font-weight: bold;
+	font-size: 1.05vw;
+    text-align: left;
+}
+
+.createPostContainerForm #inputCreatePost {
+	border: none;
+	padding: 0.9vw;
+	font-size: 1.05vw;
+	border-bottom: 1px solid silver;
+	outline: none;
+	transition: 0.2s;
+}
+
+.createPostContainerForm #inputCreatePost:focus {
+	border-bottom: 2px solid #2caf67;
+	transition: 0.2s;
+}
+
+.createPostContainerForm button {
+	margin: 0 auto;
+	margin-top: 3.1vw;
+	border: none;
+	padding: 1.05vw;
+	width: 10.4vw;
+	cursor: pointer;
+	border-radius: 50px;
+	background-image: radial-gradient(
+		circle 862px at 6% 18%,
+		rgba(21, 219, 149, 1) 9.4%,
+		rgba(26, 35, 160, 1) 83.6%
+	);
+	color: #fff;
+	font-weight: bold;
+	font-size: 0.78vw;
+	text-transform: uppercase;
+	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+	transition: 0.4s;
+}
+
+.createPostContainerForm button:hover {
+	transition: 0.4s !important;
+	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.185);
+	opacity: 0.8;
+}
+
+@media only screen and (max-width: 600px) {
+	.createPostContainer h1 {
+		margin: 0;
+		color: #fff;
+		text-align: right;
+		margin-right: 3vw;
+	}
+
+    .createPostFormDiv {
+		width: 60vw;
+		height: auto;
+		padding: 10vw;
+		margin-top: 30vw;
+	}
+
+    .createPostContainerForm {
+		width: 45vw;
+		height: auto;
+	}
+
+	.createPostContainerForm label {
+		margin-top: 3vw;
+		font-size: 3.5vw;
+	}
+
+	.createPostContainerForm #inputCreatePost {
+		border: none;
+		padding: 3vw;
+		font-size: 3.5vw;
+		border-bottom: 1px solid silver;
+	}
+
+	.createPostContainerForm #inputCreatePost:focus {
+		border-bottom: 2px solid #2caf67;
+		transition: 0.2s;
+	}
+
+	.createPostContainerForm button {
+		margin-top: 12vw;
+		padding: 3vw;
+		width: 32vw;
+		font-size: 2.4vw;
+		text-transform: uppercase;
+		box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+		transition: 0.4s;
+	}
+
+	.createPostContainerForm button:hover {
+		transition: 0.4s !important;
+		box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.185);
+		opacity: 0.8;
+	}
+}
