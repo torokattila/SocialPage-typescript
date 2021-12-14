@@ -45,7 +45,7 @@ const HomeContainer = () => {
 					listOfPosts.map(post => {
 						if (post.id === postId) {
 							if (response.data.isLiked) {
-								return { ...post, Likes: [...post.Likes] };
+								return { ...post, Likes: [...post.Likes, 0] as Like[] };
 							} else {
 								const likesArray = post.Likes;
 								likesArray.pop();
