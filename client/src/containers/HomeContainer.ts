@@ -27,7 +27,7 @@ const HomeContainer = () => {
 			});
 	};
 
-	const likePost = async (postId: number) => {
+	const likePost = async (postId: number): Promise<void> => {
 		await axios
 			.post(
 				'http://localhost:3001/like',
