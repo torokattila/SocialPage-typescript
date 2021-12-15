@@ -1,21 +1,13 @@
 import { useEffect } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import HomeContainer from '../containers/HomeContainer';
 import { Post } from '../models/Post';
-import ChatIcon from '@material-ui/icons/Chat';
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-import FavoriteIcon from '@material-ui/icons/Favorite';
 import './Home.css';
 import Navbar from '../shared/Navbar';
-import moment from 'moment';
+import PostCard from '../shared/PostCard';
 
 const Home = (): JSX.Element => {
-	const {
-		listOfPosts,
-		likedPosts,
-		getPosts,
-		likePost
-	} = HomeContainer();
+	const { listOfPosts, likedPosts, getPosts, likePost } = HomeContainer();
 
 	let history = useHistory();
 
@@ -44,67 +36,12 @@ const Home = (): JSX.Element => {
 					</div>
 				: listOfPosts.map((post: Post) => {
 						return (
-							<div className="postDiv" key={post.id}>
-								<div className="postTitle">
-									{post.title}
-								</div>
-
-								<div
-									className="postContent"
-									onClick={() => {
-										history.push(`/posts/${post.id}`);
-									}}
-								>
-									{post.content}
-								</div>
-
-								<div className="postFooter">
-									<div className="usernameDiv">
-										<Link
-											className="usernameLink"
-											to={`/profile/${post.userId}`}
-										>
-											<span className="username">
-												{post.username}
-											</span>
-										</Link>
-									</div>
-
-									<div className="postDate">
-										{moment(post.createdAt).format('YYYY-MM-DD')}
-										<div className="commentCounterDiv">
-											<ChatIcon
-												className="commentsIcon"
-												onClick={() => {
-													history.push(
-														`/posts/${post.id}`
-													);
-												}}
-											/>
-											<label>
-												{post.Comments.length}
-											</label>
-										</div>
-
-										<div className="likeButtons">
-											{likedPosts.includes(post.id)
-												? <FavoriteIcon
-														className="likeButton"
-														onClick={() =>
-															likePost(post.id)}
-													/>
-												: <FavoriteBorderIcon
-														className="likeButton"
-														onClick={() =>
-															likePost(post.id)}
-													/>}
-											<label>
-												{post.Likes.length}
-											</label>
-										</div>
-									</div>
-								</div>
-							</div>
+							<PostCard
+								isProfile={false}
+								currentPost={post}
+								likedPosts={likedPosts}
+								likePost={() => likePost(post.id)}
+							/>
 						);
 					})}
 		</div>
