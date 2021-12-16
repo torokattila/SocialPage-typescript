@@ -1,9 +1,11 @@
+import Like from 'entities/Like';
 import { getConnection, getRepository } from 'typeorm';
 import Comment from '../entities/Comment';
+import { getLikesRepository } from './LikesService';
 
 export type CommentListType = {
 	listOfComments: Comment[];
-	likedComments: Comment[];
+	likedComments: Like[];
 };
 
 const getCommentRepository = () => getConnection().getRepository(Comment);
@@ -40,9 +42,11 @@ const getCommentsForPost = async (
 			where: { postId },
 			relations: ['Likes']
 		});
-		const likedComments = await getCommentRepository().find({
-			where: { userId }
-		});
+		const likedComments = await getLikesRepository().createQueryBuilder('like')
+		.where('like.userId = :userId', { userId })
+		.andWhere('like.postId IS NULL')
+		.andWhere('like.commentId IS NOT NULL')
+		.getMany();
 
 		return { listOfComments, likedComments };
 	} catch (error) {
