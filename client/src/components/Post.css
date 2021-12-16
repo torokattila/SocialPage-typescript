@@ -1,0 +1,426 @@
+.postPageContainer {
+	margin: 0;
+	width: 100%;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+		Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	animation: fadein 1s;
+	padding-bottom: 4vw;
+}
+
+.postPageContainer h1 {
+	margin: 0;
+	color: #fff;
+	text-align: right;
+	margin-right: 70px;
+}
+
+.postCommentContainer {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.leftSide {
+	padding-top: 4vw;
+}
+
+.postDiv {
+	width: 26.1vw;
+	height: 15.65vw;
+	border-radius: 20px;
+	box-shadow: 0 5px 10px rgba(159, 165, 190, 0.274),
+		0 15px 40px rgba(166, 173, 201, .2);
+	margin: 0 auto;
+	margin-top: 3vw;
+	margin-bottom: 2.6vw;
+	padding: 2.65vw;
+	display: flex;
+	flex-direction: column;
+	transition: 0.2s;
+	color: #fff;
+	font-weight: bold;
+	background-image: linear-gradient(
+		109.6deg,
+		rgba(102, 203, 149, 1) 11.2%,
+		rgba(39, 210, 175, 1) 98.7%
+	);
+}
+
+.postDiv:hover {
+	box-shadow: 0 5px 10px rgba(154, 160, 185, 0.514),
+		0 15px 40px rgba(148, 155, 180, 0.685);
+}
+
+.postTitle {
+	flex: 10%;
+	font-size: 1.55vw;
+	display: flex;
+	justify-content: space-between;
+	cursor: pointer;
+}
+
+.postTitle:hover .editTitleIcon {
+	display: block !important;
+}
+
+.editTitleIcon {
+	display: none !important;
+	font-size: 1.5vw !important;
+	position: relative;
+	left: -1vw;
+	bottom: 1vw;
+}
+
+.postContent {
+	font-size: 1.15vw;
+	flex: 95%;
+	display: grid;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}
+
+.editContentIcon {
+	display: none !important;
+	position: absolute;
+	font-size: 2vw !important;
+	margin-top: 2vw !important;
+	margin-left: 22.7vw !important;
+}
+
+.postContent:hover .editContentIcon {
+	display: block !important;
+}
+
+.postFooter {
+	flex: 20%;
+	font-size: 1.05vw;
+	display: flex;
+	position: relative;
+	flex-direction: column;
+}
+
+.username {
+	cursor: pointer;
+	border: 2px solid #fff;
+	border-radius: 50px;
+	padding: 0.55vw 1.1vw;
+	font-size: 1vw;
+	transition: 0.4s;
+}
+
+.username:hover {
+	background-color: #fff;
+	transition: 0.4s;
+	color: #5dcc99;
+}
+
+.postDate {
+	margin-top: 1.5vw;
+	display: flex;
+	font-size: 1vw;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.likeButton {
+	position: absolute;
+	right: 0.5vw;
+	bottom: 0.4vw !important;
+	font-size: 2.65vw !important;
+	cursor: pointer;
+}
+
+.rightSide {
+	padding-top: 4vw;
+}
+
+.addCommentContainer h2 {
+	color: #33be77;
+	font-size: 1.5vw;
+}
+
+.commentInput {
+	border: none;
+	padding: 1vw;
+	font-size: 1.05vw;
+	border-bottom: 1px solid silver;
+	outline: none;
+	transition: 0.2s;
+	display: inline-block;
+	margin-top: 1vw;
+}
+
+.commentInput:focus {
+	border-bottom: 2px solid #2caf67;
+	transition: 0.2s;
+}
+
+.commentCard {
+	width: 15vw;
+	height: auto;
+	padding: 5vw;
+	box-shadow: 0 5px 10px rgba(159, 165, 190, 0.274),
+		0 15px 40px rgba(166, 173, 201, .2);
+	border-radius: 20px;
+	margin-top: 5vw;
+	transition: 0.4s;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+}
+
+.commentCard:hover {
+	box-shadow: 0 5px 10px rgba(154, 160, 185, 0.514),
+		0 15px 40px rgba(148, 155, 180, 0.685);
+	transition: 0.4s;
+}
+
+.deleteCommentIcon {
+	color: #fff !important;
+	cursor: pointer !important;
+	font-size: 1.5vw !important;
+	position: absolute;
+	margin-top: -9vw;
+	background-color: #2caf67;
+	padding: 0.5vw;
+	border-radius: 100px;
+	width: 2vw;
+	height: 2vw;
+	text-align: center;
+	font-weight: bold;
+	margin-left: 18vw;
+	transition: 0.4s;
+}
+
+.deleteCommentIcon:hover {
+	background-color: #06ce60;
+	transition: 0.4s;
+}
+
+.commentContent {
+	color: #00ca5b;
+	margin-bottom: 2vw;
+	margin-top: -2vw;
+	font-size: 1.4vw;
+}
+
+.commentFooter {
+	color: #278a8d;
+	margin-bottom: -4vw;
+	margin-left: -3vw;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.commentFooter span {
+	font-size: 1.2vw;
+}
+
+.commentLikeButtonDiv label {
+	position: relative;
+	left: 2.5vw;
+	bottom: 0.3vw;
+	font-size: 1vw;
+}
+
+.commentLikeButton {
+	color: #36c977 !important;
+	font-size: 2vw !important;
+	position: relative;
+	bottom: 0.5vw !important;
+	left: 2.5vw !important;
+	cursor: pointer !important;
+}
+
+.addCommentButton {
+	margin-top: 2.5vw;
+	margin: 0 auto;
+	margin-top: 3vw;
+	border: none;
+	padding: 1vw;
+	width: 10vw;
+	cursor: pointer;
+	border-radius: 50px;
+	background-image: radial-gradient(
+		circle 862px at 6% 18%,
+		rgba(21, 219, 149, 1) 9.4%,
+		rgba(26, 35, 160, 1) 83.6%
+	);
+	color: #fff;
+	font-weight: bold;
+	font-size: 0.8vw;
+	text-transform: uppercase;
+	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+	transition: 0.4s;
+}
+
+.addCommentButton:hover {
+	transition: 0.4s !important;
+	box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.185);
+	opacity: 0.8;
+}
+
+@media only screen and (max-width: 600px) {
+	.postPageContainer h1 {
+		margin: 0;
+		color: #fff;
+		text-align: right;
+		margin-right: 3vw;
+	}
+
+    .postCommentContainer {
+		flex-direction: column;
+	}
+
+    .postDiv {
+		width: 60vw;
+		height: 40vw;
+		margin-top: 10vw;
+		margin-bottom: 2.6vw;
+		padding: 8vw;
+	}
+
+    .postTitle {
+		flex: 10%;
+		font-size: 4.2vw;
+	}
+
+    .editTitleIcon {
+		font-size: 5vw !important;
+		position: relative;
+		left: 1vw;
+		bottom: 4vw;
+		display: block !important;
+	}
+
+    .postContent {
+		font-size: 3.5vw;
+		flex: 95%;
+	}
+
+    .editContentIcon {
+		display: block !important;
+		position: absolute;
+		font-size: 5vw !important;
+		margin-top: 4vw !important;
+		margin-left: 50vw !important;
+	}
+
+    .postFooter {
+		flex: 20%;
+		font-size: 3vw;
+		display: flex;
+		position: relative;
+		flex-direction: column;
+	}
+
+    .username {
+		padding: 1vw 3vw;
+		font-size: 2.5vw;
+		transition: 0.4s;
+	}
+
+    .postDate {
+		margin-top: 4vw;
+		font-size: 3vw;
+	}
+
+    .likeButton {
+		position: absolute;
+		right: 1.2vw;
+		bottom: 0.4vw !important;
+		font-size: 7vw !important;
+		cursor: pointer;
+	}
+
+    .rightSide {
+		padding-top: 6vw;
+	}
+
+    .addCommentContainer h2 {
+		color: #33be77;
+		font-size: 4vw;
+	}
+
+    .commentInput {
+		padding: 2vw;
+		font-size: 4vw;
+		margin-top: 1vw;
+		width: 46vw;
+	}
+
+    .commentCard {
+		width: 40vw;
+		padding: 10vw;
+		margin-top: 10vw;
+	}
+
+    .deleteCommentIcon {
+		color: #fff !important;
+		cursor: pointer !important;
+		font-size: 7vw !important;
+		position: absolute;
+		margin-top: -27vw;
+		background-color: #2caf67;
+		padding: 3vw;
+		width: 4vw;
+		height: 4vw;
+		text-align: center;
+		margin-left: 43.5vw;
+	}
+
+	.deleteCommentIcon span {
+		position: relative;
+		bottom: 3vw !important;
+	}
+
+	.deleteCommentIcon:hover {
+		background-color: #06ce60;
+		transition: 0.4s;
+	}
+
+    .commentContent {
+		margin-top: -2vw;
+		font-size: 4vw;
+	}
+
+    .commentFooter {
+		color: #278a8d;
+		margin-top: 4vw;
+		margin-left: -3vw;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	.commentFooter span {
+		font-size: 3vw;
+	}
+
+    .commentLikeButtonDiv label {
+		position: relative;
+		left: 2.5vw;
+		bottom: -1vw;
+		font-size: 3vw;
+	}
+
+    .commentLikeButton {
+		color: #36c977 !important;
+		font-size: 5vw !important;
+		position: relative;
+		bottom: -0.5vw !important;
+		left: 2.5vw !important;
+		cursor: pointer !important;
+	}
+
+    .addCommentButton {
+		margin-top: 8vw !important;
+		margin-top: 3vw;
+		padding: 2.5vw;
+		width: 32vw;
+		font-size: 2.6vw;
+	}
+}

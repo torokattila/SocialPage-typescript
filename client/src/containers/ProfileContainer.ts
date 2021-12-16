@@ -1,10 +1,10 @@
 import axios, { AxiosResponse } from 'axios';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { AuthContext } from '../helpers/AuthContext';
 import { Post } from '../models/Post';
 
-interface ParamTypes {
+export interface ParamTypes {
     id: string;
 }
 

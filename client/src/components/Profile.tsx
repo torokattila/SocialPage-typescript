@@ -1,5 +1,5 @@
 import { Tooltip } from '@material-ui/core';
-import { useContext, useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import ProfileContainer from '../containers/ProfileContainer';
 import Navbar from '../shared/Navbar';
 import EditOutlinedIcon from '@material-ui/icons/EditOutlined';

@@ -37,6 +37,7 @@ const Home = (): JSX.Element => {
 				: listOfPosts.map((post: Post) => {
 						return (
 							<PostCard
+								key={post.id}
 								isProfile={false}
 								currentPost={post}
 								likedPosts={likedPosts}
